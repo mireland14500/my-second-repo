@@ -1,0 +1,17 @@
+name: Run My Composite Action
+
+on:
+  workflow_dispatch:  # Enables manual trigger from the GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  # Always needed if your action is inside the repo
+
+      - name: Use my composite action
+        uses: ./.github/actions/my-composite-action
+        with:
+          node-version: '18'
